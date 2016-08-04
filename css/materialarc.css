@@ -1,0 +1,490 @@
+/*Materilarc main file*/
+/*
+	#######################################
+		Grid System Logic for materialarc
+	#######################################
+
+	--> to learn more about grid system go to this url  www.sitepoint.com/understanding-css-grid-systems
+*/
+.row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.col + .col {
+  margin-left: 1.6%; }
+
+.col-left {
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start; }
+
+.col-center {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center; }
+
+.col-right {
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end; }
+
+@media screen and (min-width: 1024px) {
+  .ls1 {
+    width: 6.86667%; }
+
+  .ls2 {
+    width: 15.33333%; }
+
+  .ls3 {
+    width: 23.8%; }
+
+  .ls4 {
+    width: 32.26667%; }
+
+  .ls5 {
+    width: 40.73333%; }
+
+  .ls6 {
+    width: 49.2%; }
+
+  .ls7 {
+    width: 57.66667%; }
+
+  .ls8 {
+    width: 66.13333%; }
+
+  .ls9 {
+    width: 74.6%; }
+
+  .ls10 {
+    width: 83.06667%; }
+
+  .ls11 {
+    width: 91.53333%; }
+
+  .ls12 {
+    width: 100%; } }
+@media screen and (max-width: 1023px) and (min-width: 719px) {
+  .ms1 {
+    width: 6.86667%; }
+
+  .ms2 {
+    width: 15.33333%; }
+
+  .ms3 {
+    width: 23.8%; }
+
+  .ms4 {
+    width: 32.26667%; }
+
+  .ms5 {
+    width: 40.73333%; }
+
+  .ms6 {
+    width: 49.2%; }
+
+  .ms7 {
+    width: 57.66667%; }
+
+  .ms8 {
+    width: 66.13333%; }
+
+  .ms9 {
+    width: 74.6%; }
+
+  .ms10 {
+    width: 83.06667%; }
+
+  .ms11 {
+    width: 91.53333%; }
+
+  .ms12 {
+    width: 100%; } }
+@media screen and (max-width: 719px) {
+  .ss1 {
+    width: 6.86667%; }
+
+  .ss2 {
+    width: 15.33333%; }
+
+  .ss3 {
+    width: 23.8%; }
+
+  .ss4 {
+    width: 32.26667%; }
+
+  .ss5 {
+    width: 40.73333%; }
+
+  .ss6 {
+    width: 49.2%; }
+
+  .ss7 {
+    width: 57.66667%; }
+
+  .ss8 {
+    width: 66.13333%; }
+
+  .ss9 {
+    width: 74.6%; }
+
+  .ss10 {
+    width: 83.06667%; }
+
+  .ss11 {
+    width: 91.53333%; }
+
+  .ss12 {
+    width: 100%; } }
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', Arial, serif; }
+
+.row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.row [class*='ls-']:not(:last-child), .row [class*='md-']:not(:last-child), .row [class*='ss-']:not(:last-child) {
+  margin-right: 1.6%; }
+
+/*Materila Cards*/
+.card {
+  box-shadow: 0px 0px 2px 1px #ccc; }
+
+form {
+  width: 98%;
+  padding: 2%; }
+
+/*Division that contain input and label*/
+div.input-group {
+  display: block;
+  padding: 20px 0px 0px 0px;
+  margin-bottom: 10px;
+  position: relative; }
+
+/*For Materila Inputs*/
+input[type="text"], input[type="password"] {
+  border-color: #999;
+  border-width: 0 0 2px 0;
+  width: 100%;
+  background-color: transparent; }
+
+/*Labe of input*/
+input[type="text"] ~ label, input[type="password"] ~ label {
+  color: #999;
+  font-size: 18px;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 15px;
+  transition: 0.2s ease all; }
+
+/*Bar that shows down when input is focused*/
+.input-group .bar {
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #512DA8;
+  position: absolute;
+  display: none; }
+
+/*For preventing default lines when focused*/
+input:focus {
+  outline: none; }
+
+/*When input gain focus shift label up and resize*/
+input[type="text"].full ~ label, input[type="text"]:focus ~ label, input[type="password"]:focus ~ label {
+  top: 0px;
+  font-size: 14px;
+  color: #512DA8;
+  font-weight: bold; }
+
+/*Bar animation when input focused*/
+@-webkit-keyframes inputbarin {
+  0% {
+    left: 50%;
+    right: 50%;
+    width: 2%;
+    height: 3px; }
+  100% {
+    width: 100%; } }
+@keyframes inputbarin {
+  0% {
+    left: 50%;
+    right: 50%;
+    width: 2%;
+    height: 3px; }
+  100% {
+    width: 100%; } }
+/*show bar andIncreasse bar length animation when input is focused*/
+input[type="text"]:focus ~ .bar, input[type="password"]:focus ~ .bar {
+  display: block;
+  -webkit-animation: inputbarin 0.4s ease;
+          animation: inputbarin 0.4s ease; }
+
+/*For Radio buttons */
+/*
+	hidding radio button since stylling is very hard.
+	so stylling using label. label contain outer div for outer circle and inner div for inner circel
+	user will have option to add theese div manualy or using javascript
+*/
+input[type="radio"] {
+  display: none; }
+
+/*Label of radio button*/
+input[type="radio"] + label {
+  margin-left: 0px;
+  cursor: pointer; }
+
+/*Div for Outer Circel*/
+input[type="radio"] + label .outer {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border: 3px solid black;
+  border-radius: 15px;
+  transition: all 0.3s linear; }
+
+/*Div for inner circle*/
+input[type="radio"] + label .inner {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #502DA8;
+  width: 5px;
+  height: 5px;
+  border-radius: 15px;
+  opacity: 0;
+  transition: all 0.32s linear; }
+
+input[type="radio"]:not(:checked) + label:hover .inner {
+  background-color: #2DA88E;
+  opacity: 1; }
+
+input[type="radio"]:not(:checked) + label:hover .outer {
+  border-color: #2DA88E; }
+
+input[type=radio]:checked + label .outer {
+  border-color: #502DA8; }
+
+/*Bouncing effect when radio button is checked*/
+@-webkit-keyframes innerCicle {
+  0% {
+    width: 6px;
+    height: 6px; }
+  50% {
+    height: 10px;
+    width: 10px; }
+  70% {
+    height: 6px;
+    width: 6px; }
+  100% {
+    height: 10px;
+    width: 10px; } }
+@keyframes innerCicle {
+  0% {
+    width: 6px;
+    height: 6px; }
+  50% {
+    height: 10px;
+    width: 10px; }
+  70% {
+    height: 6px;
+    width: 6px; }
+  100% {
+    height: 10px;
+    width: 10px; } }
+input[type=radio]:checked + label .inner {
+  opacity: 1;
+  -webkit-animation: innerCicle 0.7s ease;
+          animation: innerCicle 0.7s ease;
+  height: 8px;
+  width: 8px; }
+
+/*Style for checkbox*/
+/*Same concept as radio button hide the original checkboc create the new one using sudo elemenet before and after*/
+input[type="checkbox"] {
+  display: none; }
+
+/*lebel of checkbox*/
+input[type="checkbox"] + label {
+  position: relative;
+  cursor: pointer; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  left: 0;
+  display: inline-block;
+  margin-right: 10px;
+  height: 15px;
+  width: 15px;
+  border: 2px solid black;
+  transition: all 0.3s linear; }
+
+input[type="checkbox"] + label:before {
+  border-radius: 6px; }
+
+input[type="checkbox"] + label:after {
+  opacity: 0;
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  border: 3px solid transparent;
+  transition: all 0.3s linear; }
+
+input[type="checkbox"]:checked + label:before {
+  border-color: #502DA8; }
+
+input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  left: 3px;
+  width: 4px;
+  height: 7px;
+  border-top: 3px solid transparent;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #502DA8;
+  border-bottom: 3px solid #502DA8;
+  -webkit-transform: rotateZ(38deg);
+      -ms-transform: rotate(38deg);
+          transform: rotateZ(38deg); }
+
+input[type="checkbox"] + label:hover:before {
+  border-color: #2DA88E; }
+
+input[type="checkbox"] + label:hover:after {
+  border-color: transparent #2DA88E #2DA88E transparent; }
+
+/*For Mobile Phones*/
+@media screen and (max-width: 599px) {
+  .sm1 {
+    width: 6.86667%; }
+
+  .sm2 {
+    width: 15.33333%; }
+
+  .sm3 {
+    width: 23.8%; }
+
+  .sm4 {
+    width: 32.26667%; }
+
+  .sm5 {
+    width: 40.73333%; }
+
+  .sm6 {
+    width: 49.2%; }
+
+  .sm7 {
+    width: 57.66667%; }
+
+  .sm8 {
+    width: 66.13333%; }
+
+  .sm9 {
+    width: 74.6%; }
+
+  .sm10 {
+    width: 83.06667%; }
+
+  .sm11 {
+    width: 91.53333%; }
+
+  .sm12 {
+    width: 100%; } }
+/*For some large phones with large resolution and some Tablets*/
+@media screen and (min-width: 600px) and (max-width: 839px) {
+  .md1 {
+    width: 6.86667%; }
+
+  .md2 {
+    width: 15.33333%; }
+
+  .md3 {
+    width: 23.8%; }
+
+  .md4 {
+    width: 32.26667%; }
+
+  .md5 {
+    width: 40.73333%; }
+
+  .md6 {
+    width: 49.2%; }
+
+  .md7 {
+    width: 57.66667%; }
+
+  .md8 {
+    width: 66.13333%; }
+
+  .md9 {
+    width: 74.6%; }
+
+  .md10 {
+    width: 83.06667%; }
+
+  .md11 {
+    width: 91.53333%; }
+
+  .md12 {
+    width: 100%; } }
+/* For pc and laptops*/
+@media screen and (min-width: 839px) {
+  .lg1 {
+    width: 6.86667%; }
+
+  .lg2 {
+    width: 15.33333%; }
+
+  .lg3 {
+    width: 23.8%; }
+
+  .lg4 {
+    width: 32.26667%; }
+
+  .lg5 {
+    width: 40.73333%; }
+
+  .lg6 {
+    width: 49.2%; }
+
+  .lg7 {
+    width: 57.66667%; }
+
+  .lg8 {
+    width: 66.13333%; }
+
+  .lg9 {
+    width: 74.6%; }
+
+  .lg10 {
+    width: 83.06667%; }
+
+  .lg11 {
+    width: 91.53333%; }
+
+  .lg12 {
+    width: 100%; } }
+
+/*# sourceMappingURL=maps/materialarc.css.map */

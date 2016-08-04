@@ -1,0 +1,59 @@
+/*
+	#######################################
+		Grid System Logic for materialarc
+	#######################################
+
+	--> to learn more about grid system go to this url  www.sitepoint.com/understanding-css-grid-systems
+*/
+
+$no-grid : 12;
+$gutter-width : 1.6%;
+
+//Break points for diffrent screen resolutions
+$large-breakpoint: "screen and (min-width: 1024px)"; //For large screen devices
+$medium-breakpoint: "screen and (max-width: 1023px) and (min-width: 719px)"; //for mediuam screen devices
+$small-breakpoint: "screen and (max-width: 719px)"; //for small screen devices
+
+$scw : (100 - ($gutter-width * ($no-grid - 1))) / $no-grid; //Single Column width
+
+@mixin drawGrid($prefix)
+{
+	@for $i from 1 to $no-grid+1
+	{
+		.#{$prefix}#{$i}
+		{
+			width: ($scw * $i) + ($gutter-width * ($i - 1));
+		}
+	}
+}
+
+.row{
+	display: flex;
+	flex-flow: row; 
+  	flex-wrap: wrap;
+}
+.col + .col {
+    margin-left: $gutter-width;
+}
+.col-left{
+	
+	align-self: flex-start;
+}
+.col-center{
+	align-self: center;
+}
+.col-right{
+	align-self: flex-end;
+}
+
+@media #{$large-breakpoint}{
+	@include drawGrid('ls');
+}
+
+@media #{$medium-breakpoint}{
+	@include drawGrid('ms');
+}
+
+@media #{$small-breakpoint}{
+	@include drawGrid('ss');
+}

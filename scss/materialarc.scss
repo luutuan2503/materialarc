@@ -1,0 +1,71 @@
+				/*Materilarc main file*/
+
+//Sub files
+	@import 'grid_system';
+	@import 'colors';
+
+//bp = break point
+$bpMobileMax : 599px;
+$bpTabMax : 839px;
+
+body
+{
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Roboto', Arial, serif;
+}
+
+.row
+{
+	display: flex;
+}
+
+.row [class*='ls-']:not(:last-child),.row [class*='md-']:not(:last-child),.row [class*='ss-']:not(:last-child)
+{
+	margin-right: 1.6%;
+}
+
+/*Materila Cards*/
+.card
+{
+	box-shadow: 0px 0px 2px 1px #ccc;
+}
+
+form
+{
+	width: 98%;
+	padding: 2%;
+}
+
+/*Division that contain input and label*/
+div.input-group
+{
+	display: block;
+	padding: 20px 0px 0px 0px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+/*For Materila Inputs*/
+@import 'inputs';
+
+/*For Mobile Phones*/
+@media screen and (max-width: #{$bpMobileMax}){
+
+	//For diffrent coulomn widths
+	@include drawGrid("sm");
+}
+
+/*For some large phones with large resolution and some Tablets*/
+@media screen and (min-width: #{$bpMobileMax+1}) and  (max-width: #{$bpTabMax}){
+
+	//For diffrent coulomn widths
+	@include drawGrid("md");
+}	
+
+/* For pc and laptops*/
+@media screen and (min-width: #{$bpTabMax}){
+
+	//For diffrent coulomn widths
+	@include drawGrid("lg");
+}

@@ -1,0 +1,30 @@
+{
+  "name": "materialarc",
+  "version": "1.0.0",
+  "description": "A responsive framwork",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhendrapatel/materialarc.git"
+  },
+  "author": "Shubham Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhendrapatel/materialarc/issues"
+  },
+  "homepage": "https://github.com/shubhendrapatel/materialarc#readme",
+  "keywords": [
+    "framwork"
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0"
+  }
+}
