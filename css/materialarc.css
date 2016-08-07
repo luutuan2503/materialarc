@@ -1,4 +1,11 @@
-/*Materilarc main file*/
+/*
+				Materilarc
+*/
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', Arial, serif; }
+
 /*
 	#######################################
 		Grid System Logic for materialarc
@@ -7,33 +14,21 @@
 	--> to learn more about grid system go to this url  www.sitepoint.com/understanding-css-grid-systems
 */
 .row {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+  flex-flow: row;
+  flex-wrap: wrap; }
 
 .col + .col {
   margin-left: 1.6%; }
 
 .col-left {
-  -webkit-align-self: flex-start;
-      -ms-flex-item-align: start;
-          align-self: flex-start; }
+  align-self: flex-start; }
 
 .col-center {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center; }
+  align-self: center; }
 
 .col-right {
-  -webkit-align-self: flex-end;
-      -ms-flex-item-align: end;
-          align-self: flex-end; }
+  align-self: flex-end; }
 
 @media screen and (min-width: 1024px) {
   .ls1 {
@@ -143,35 +138,80 @@
 
   .ss12 {
     width: 100%; } }
-body {
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Roboto', Arial, serif; }
+/*
+	materialrc Input feilds styling
+*/
+/*
+		styling Buttons
+*/
+button.flat-btn,
+input[type="button"].flat-btn,
+input[type="submit"].flat-btn {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto', Arial, serif;
+  font-weight: bold;
+  font-size: 15px;
+  min-width: 64px;
+  min-height: 18px;
+  padding: 9px 8px 9px 8px;
+  margin: 8px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: all .4s;
+  text-transform: uppercase; }
 
-.row {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
+button.flat-btn:hover,
+input[type="button"].flat-btn:hover,
+input[type="submit"].flat-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1); }
 
-.row [class*='ls-']:not(:last-child), .row [class*='md-']:not(:last-child), .row [class*='ss-']:not(:last-child) {
-  margin-right: 1.6%; }
+/*Normal Button Stylling*/
+input[type="submit"],
+[type="button"],
+button
+, button.btn,
+.btn,
+input[type="button"].btn,
+input[type="submit"].btn {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto', Arial, serif;
+  font-weight: bold;
+  font-size: 15px;
+  min-width: 64px;
+  min-height: 18px;
+  padding: 9px 8px 9px 8px;
+  margin: 8px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  background-color: #512DA8;
+  color: #ecf0f1;
+  transition: background-color .3s;
+  text-decoration: none;
+  text-align: center;
+  cursor: context-menu; }
 
-/*Materila Cards*/
-.card {
-  box-shadow: 0px 0px 2px 1px #ccc; }
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover
+, button.btn:hover,
+input[type="button"].btn:hover,
+input[type="submit"].btn:hover,
+.btn:hover {
+  background-color: #2DA88E;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6); }
 
-form {
-  width: 98%;
-  padding: 2%; }
-
-/*Division that contain input and label*/
 div.input-group {
   display: block;
   padding: 20px 0px 0px 0px;
   margin-bottom: 10px;
   position: relative; }
 
-/*For Materila Inputs*/
 input[type="text"], input[type="password"] {
   border-color: #999;
   border-width: 0 0 2px 0;
@@ -203,21 +243,13 @@ input:focus {
   outline: none; }
 
 /*When input gain focus shift label up and resize*/
-input[type="text"].full ~ label, input[type="text"]:focus ~ label, input[type="password"]:focus ~ label {
+input[type="text"].full ~ label, input[type="password"].full ~ label, input[type="text"]:focus ~ label, input[type="password"]:focus ~ label {
   top: 0px;
   font-size: 14px;
   color: #512DA8;
   font-weight: bold; }
 
 /*Bar animation when input focused*/
-@-webkit-keyframes inputbarin {
-  0% {
-    left: 50%;
-    right: 50%;
-    width: 2%;
-    height: 3px; }
-  100% {
-    width: 100%; } }
 @keyframes inputbarin {
   0% {
     left: 50%;
@@ -229,13 +261,12 @@ input[type="text"].full ~ label, input[type="text"]:focus ~ label, input[type="p
 /*show bar andIncreasse bar length animation when input is focused*/
 input[type="text"]:focus ~ .bar, input[type="password"]:focus ~ .bar {
   display: block;
-  -webkit-animation: inputbarin 0.4s ease;
-          animation: inputbarin 0.4s ease; }
+  animation: inputbarin 0.4s ease; }
 
 /*For Radio buttons */
 /*
 	hidding radio button since stylling is very hard.
-	so stylling using label. label contain outer div for outer circle and inner div for inner circel
+	so stylling using label. label contain.outer-circle div for.outer-circle circle and.inner-circle div for.inner-circle circel
 	user will have option to add theese div manualy or using javascript
 */
 input[type="radio"] {
@@ -246,47 +277,45 @@ input[type="radio"] + label {
   margin-left: 0px;
   cursor: pointer; }
 
-/*Div for Outer Circel*/
-input[type="radio"] + label .outer {
+/*Div for.outer-circle Circel*/
+input[type="radio"] + label .outer-circle {
   content: '';
   display: inline-block;
   position: relative;
   width: 12px;
   height: 12px;
   margin-right: 8px;
-  border: 3px solid black;
-  border-radius: 15px;
+  border: 2px solid black;
+  border-radius: 50%;
   transition: all 0.3s linear; }
 
-/*Div for inner circle*/
-input[type="radio"] + label .inner {
+/*Div for.inner-circle circle*/
+input[type="radio"] + label .inner-circle {
   content: '';
   display: inline-block;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  background-color: #502DA8;
+  transform: translate(-50%, -50%);
+  background-color: #512DA8;
   width: 5px;
   height: 5px;
   border-radius: 15px;
   opacity: 0;
   transition: all 0.32s linear; }
 
-input[type="radio"]:not(:checked) + label:hover .inner {
+input[type="radio"]:not(:checked) + label:hover .inner-circle {
   background-color: #2DA88E;
   opacity: 1; }
 
-input[type="radio"]:not(:checked) + label:hover .outer {
+input[type="radio"]:not(:checked) + label:hover .outer-circle {
   border-color: #2DA88E; }
 
-input[type=radio]:checked + label .outer {
-  border-color: #502DA8; }
+input[type=radio]:checked + label .outer-circle {
+  border-color: #512DA8; }
 
 /*Bouncing effect when radio button is checked*/
-@-webkit-keyframes innerCicle {
+@keyframes animInner {
   0% {
     width: 6px;
     height: 6px; }
@@ -299,23 +328,9 @@ input[type=radio]:checked + label .outer {
   100% {
     height: 10px;
     width: 10px; } }
-@keyframes innerCicle {
-  0% {
-    width: 6px;
-    height: 6px; }
-  50% {
-    height: 10px;
-    width: 10px; }
-  70% {
-    height: 6px;
-    width: 6px; }
-  100% {
-    height: 10px;
-    width: 10px; } }
-input[type=radio]:checked + label .inner {
+input[type=radio]:checked + label .inner-circle {
   opacity: 1;
-  -webkit-animation: innerCicle 0.7s ease;
-          animation: innerCicle 0.7s ease;
+  animation: animInner 0.7s ease;
   height: 8px;
   width: 8px; }
 
@@ -337,37 +352,37 @@ input[type="checkbox"] + label:before {
   height: 15px;
   width: 15px;
   border: 2px solid black;
+  border-radius: 6px;
   transition: all 0.3s linear; }
-
-input[type="checkbox"] + label:before {
-  border-radius: 6px; }
 
 input[type="checkbox"] + label:after {
   opacity: 0;
   display: inline-block;
   content: '';
   position: absolute;
+  top: 0;
   left: 0;
   height: 12px;
   width: 12px;
   border: 3px solid transparent;
+  border-radius: 6px;
   transition: all 0.3s linear; }
 
 input[type="checkbox"]:checked + label:before {
-  border-color: #502DA8; }
+  border-color: #512DA8; }
 
 input[type="checkbox"]:checked + label:after {
   opacity: 1;
-  left: 3px;
+  top: -5px;
+  left: 4px;
   width: 4px;
   height: 7px;
   border-top: 3px solid transparent;
   border-left: 3px solid transparent;
-  border-right: 3px solid #502DA8;
-  border-bottom: 3px solid #502DA8;
-  -webkit-transform: rotateZ(38deg);
-      -ms-transform: rotate(38deg);
-          transform: rotateZ(38deg); }
+  border-right: 3px solid #512DA8;
+  border-bottom: 3px solid #512DA8;
+  transform: rotateZ(38deg);
+  border-radius: 0px; }
 
 input[type="checkbox"] + label:hover:before {
   border-color: #2DA88E; }
@@ -375,116 +390,54 @@ input[type="checkbox"] + label:hover:before {
 input[type="checkbox"] + label:hover:after {
   border-color: transparent #2DA88E #2DA88E transparent; }
 
-/*For Mobile Phones*/
-@media screen and (max-width: 599px) {
-  .sm1 {
-    width: 6.86667%; }
+/*
+	Material Design cards
+	#############################################
+		thanks CSS-TRICKS for providing logic
+	#############################################
 
-  .sm2 {
-    width: 15.33333%; }
+	url:- https://css-tricks.com/snippets/sass/material-shadows-mixin/
+*/
+/**
+ * Computes a top-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+/**
+ * Computes a bottom-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+/**
+ * Gives a card depth effect.
+ *
+ * @param {Number} $depth - depth level (between 1 and 5)
+ *
+ * @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+ *
+ * @requires {function} top-shadow
+ * @requires {function} bottom-shadow
+ */
+.card {
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  padding: 5px; }
 
-  .sm3 {
-    width: 23.8%; }
+.card-2 {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+  padding: 5px; }
 
-  .sm4 {
-    width: 32.26667%; }
+.card-4 {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+  padding: 5px; }
 
-  .sm5 {
-    width: 40.73333%; }
+.card-8 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+  padding: 5px; }
 
-  .sm6 {
-    width: 49.2%; }
-
-  .sm7 {
-    width: 57.66667%; }
-
-  .sm8 {
-    width: 66.13333%; }
-
-  .sm9 {
-    width: 74.6%; }
-
-  .sm10 {
-    width: 83.06667%; }
-
-  .sm11 {
-    width: 91.53333%; }
-
-  .sm12 {
-    width: 100%; } }
-/*For some large phones with large resolution and some Tablets*/
-@media screen and (min-width: 600px) and (max-width: 839px) {
-  .md1 {
-    width: 6.86667%; }
-
-  .md2 {
-    width: 15.33333%; }
-
-  .md3 {
-    width: 23.8%; }
-
-  .md4 {
-    width: 32.26667%; }
-
-  .md5 {
-    width: 40.73333%; }
-
-  .md6 {
-    width: 49.2%; }
-
-  .md7 {
-    width: 57.66667%; }
-
-  .md8 {
-    width: 66.13333%; }
-
-  .md9 {
-    width: 74.6%; }
-
-  .md10 {
-    width: 83.06667%; }
-
-  .md11 {
-    width: 91.53333%; }
-
-  .md12 {
-    width: 100%; } }
-/* For pc and laptops*/
-@media screen and (min-width: 839px) {
-  .lg1 {
-    width: 6.86667%; }
-
-  .lg2 {
-    width: 15.33333%; }
-
-  .lg3 {
-    width: 23.8%; }
-
-  .lg4 {
-    width: 32.26667%; }
-
-  .lg5 {
-    width: 40.73333%; }
-
-  .lg6 {
-    width: 49.2%; }
-
-  .lg7 {
-    width: 57.66667%; }
-
-  .lg8 {
-    width: 66.13333%; }
-
-  .lg9 {
-    width: 74.6%; }
-
-  .lg10 {
-    width: 83.06667%; }
-
-  .lg11 {
-    width: 91.53333%; }
-
-  .lg12 {
-    width: 100%; } }
-
-/*# sourceMappingURL=maps/materialarc.css.map */
+.card-16 {
+  box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+  padding: 5px; }

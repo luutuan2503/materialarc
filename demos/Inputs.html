@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Materialaec | Input feild demo</title>
+	<!--Roboto Fonts! -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="../css/materialarc.min.css">
+</head>
+<body>
+	<form class="card" style="width:300px;margin: 0 auto;">
+		<div class="input-group">
+			<input id="user" type="text" oninput="userChnage()">
+			<label for="user">Username</label>
+		</div>
+
+		<div class="input-group">
+			<input id="pass" type="password" oninput="passChnage()">
+			<label for="pass">Password</label>
+		</div>
+
+		<input type="radio" id="choice1" name="test" onchange="radioCheck()" />
+		<label for="choice1" class="radio-label">Male</label>
+
+			<br>
+		<input type="radio" id="choice2" name="test" onchange="radioCheck()" />
+		<label for="choice2" class="radio-label">Female</label>
+
+			<br>
+		<input type="checkbox" id="checkbox1" onchange="check(this)" />
+		<label for="checkbox1">Remeber me</label>
+			<br>
+
+
+		<button class="btn">Submit</button>
+	</form>
+
+	<div style="text-align:center">
+		<p>Userame: <span id="username"></span></p>	
+		<p>Password: <span id="password"></span></p>
+		<p>Male: <span id="male">off</span></p>
+		<p>Male: <span id="female">off</span></p>
+		<p>Remeber me: <span id="remeber">Unchecked</span></p>
+	</div>
+	<script type="text/javascript" src="../js/materialarc.min.js"></script>
+	<script type="text/javascript">
+		var user = document.getElementById('username');
+		var pass = document.getElementById('password');
+		var maleindicator = document.getElementById('male');
+		var femaleindicator = document.getElementById('female');
+		var checkboxindicator = document.getElementById('remeber');
+
+		function userChnage(){
+			user.innerHTML = document.getElementById('user').value;
+		}
+		function passChnage(){
+			pass.innerHTML = document.getElementById('pass').value;
+		}
+		function radioCheck(){
+			if((document.getElementById('choice1').checked)){
+				maleindicator.innerHTML = "ON";
+			}
+			else{
+				maleindicator.innerHTML = "Off";
+			}
+			if((document.getElementById('choice2').checked)){
+				femaleindicator.innerHTML = "ON";
+			}
+			else{
+				femaleindicator.innerHTML = "Off";
+			}
+		}
+		function check(checkbox){	
+		    if (checkbox.checked){
+		        checkboxindicator.innerHTML = "Checked";
+		    }
+		    else{
+		    	checkboxindicator.innerHTML = "UnChecked";
+		    }
+		}
+	</script>
+</body>
+</html>

@@ -1,6 +1,91 @@
-//For materila Input feilds
+/*
+	materialrc Input feilds styling
+*/
 
-@import 'colors';
+@import 'colors';//For color pallete
+
+/*
+		styling Buttons
+*/
+
+button.flat-btn,
+input[type="button"].flat-btn,
+input[type="submit"].flat-btn
+{
+	position: relative;
+	display: inline-block;
+	font-family: 'Roboto', Arial, serif;
+	font-weight: bold;
+	font-size: 15px;
+	min-width: 64px;
+	min-height: 18px;
+	padding:9px 8px 9px 8px;
+	margin: 8px;
+	border: none;
+	outline: none;
+	border-radius: 2px;
+	background-color: rgba(0,0,0,0);
+	transition:all .4s;
+	text-transform: uppercase;
+}
+
+button.flat-btn:hover,
+input[type="button"].flat-btn:hover,
+input[type="submit"].flat-btn:hover
+{
+	background-color: rgba(0,0,0,0.1);
+}
+
+/*Normal Button Stylling*/
+
+input[type="submit"],
+[type="button"],
+button
+,button.btn,
+.btn,
+input[type="button"].btn,
+input[type="submit"].btn
+{
+	position: relative;
+	display: inline-block;
+	font-family: 'Roboto', Arial, serif;
+	font-weight: bold;
+	font-size: 15px;
+	min-width: 64px;
+	min-height: 18px;
+	padding:9px 8px 9px 8px;
+	margin: 8px;
+	border: none;
+	outline: none;
+	border-radius: 2px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .6);  
+	background-color: $selected;
+	color: #ecf0f1;
+	transition: background-color .3s;
+	text-decoration: none;
+	text-align: center;
+	cursor:context-menu;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover
+,button.btn:hover,
+input[type="button"].btn:hover,
+input[type="submit"].btn:hover,
+.btn:hover
+{
+	background-color: $hover;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+}
+
+div.input-group
+{
+	display: block;
+	padding: 20px 0px 0px 0px;
+	margin-bottom: 10px;
+	position: relative;
+}
 
 input[type="text"],input[type="password"]
 {
@@ -29,7 +114,7 @@ input[type="text"] ~ label,input[type="password"] ~ label
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background-color: #512DA8;
+	background-color: $selected;
 	position: absolute;
 	display: none;
 }
@@ -41,7 +126,7 @@ input:focus
 }
 
 /*When input gain focus shift label up and resize*/
-input[type="text"].full ~ label,input[type="text"]:focus ~ label,input[type="password"]:focus ~ label
+input[type="text"].full ~ label,input[type="password"].full ~ label,input[type="text"]:focus ~ label,input[type="password"]:focus ~ label
 {
   top: 0px;
   font-size:14px;
@@ -77,7 +162,7 @@ input[type="text"]:focus ~.bar,input[type="password"]:focus ~.bar
 
 /*
 	hidding radio button since stylling is very hard.
-	so stylling using label. label contain outer div for outer circle and inner div for inner circel
+	so stylling using label. label contain.outer-circle div for.outer-circle circle and.inner-circle div for.inner-circle circel
 	user will have option to add theese div manualy or using javascript
 */
 input[type="radio"]
@@ -92,8 +177,8 @@ input[type="radio"] + label
 	cursor: pointer;
 }
 
-/*Div for Outer Circel*/
-input[type="radio"] + label .outer
+/*Div for.outer-circle Circel*/
+input[type="radio"] + label .outer-circle
 {
 	content: '';
 	display: inline-block;
@@ -101,13 +186,13 @@ input[type="radio"] + label .outer
 	width: 12px;
 	height: 12px;
 	margin-right: 8px;
-	border: 3px solid black;
-	border-radius: 15px;	
+	border: 2px solid black;
+	border-radius: 50%;	
 	transition: all 0.3s linear;
 }
 
-/*Div for inner circle*/
-input[type="radio"] +label .inner
+/*Div for.inner-circle circle*/
+input[type="radio"] +label .inner-circle
 {
 	content: '';
 	display: inline-block;
@@ -115,7 +200,7 @@ input[type="radio"] +label .inner
 	top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-	background-color: #502DA8;
+	background-color: $selected;
 	width: 5px;
 	height: 5px;
 	border-radius: 15px;	
@@ -124,24 +209,24 @@ input[type="radio"] +label .inner
 }
 
 
-input[type="radio"]:not(:checked) +label:hover .inner
+input[type="radio"]:not(:checked) +label:hover .inner-circle
 {
-	background-color: #2DA88E;
+	background-color: $hover;
 	opacity: 1;
 }
 
-input[type="radio"]:not(:checked) +label:hover .outer
+input[type="radio"]:not(:checked) +label:hover .outer-circle
 {
-	border-color: #2DA88E;
+	border-color: $hover;
 }
 
-input[type=radio]:checked +label .outer
+input[type=radio]:checked +label .outer-circle
 {
-	border-color: #502DA8;
+	border-color: $selected;
 }
 
 /*Bouncing effect when radio button is checked*/
-@keyframes innerCicle
+@keyframes animInner
 	{
 		0%
 		{
@@ -169,10 +254,10 @@ input[type=radio]:checked +label .outer
 		}
 	}
 
-input[type=radio]:checked +label .inner
+input[type=radio]:checked +label .inner-circle
 {
 	opacity: 1;
-	animation:innerCicle 0.7s ease;
+	animation:animInner 0.7s ease;
 	height: 8px;
 	width: 8px;
 }
@@ -201,12 +286,8 @@ input[type="checkbox"] + label:before
 	height: 15px;
 	width:  15px;
 	border:2px solid black;
-	transition: all 0.3s linear;
-}
-
-input[type="checkbox"] + label:before
-{
 	border-radius: 6px;
+	transition: all 0.3s linear;
 }
 
 input[type="checkbox"] + label:after
@@ -215,37 +296,41 @@ input[type="checkbox"] + label:after
 	display: inline-block;
 	content: '';
 	position: absolute;
+	top:0;
 	left: 0;
 	height: 12px;
 	width:  12px;
 	border: 3px solid transparent;
+	border-radius: 6px;
 	transition: all 0.3s linear;
 }
 
 input[type="checkbox"]:checked + label:before
 {
-	border-color: #502DA8;
+	border-color: $selected;
 }
 
 input[type="checkbox"]:checked + label:after
 {
 	opacity: 1;
-	left: 3px;
+	top: -5px;
+	left: 4px;
 	width: 4px;
 	height: 7px;
 	border-top: 3px solid transparent;
 	border-left: 3px solid transparent;
-	border-right: 3px solid #502DA8;
-	border-bottom: 3px solid #502DA8;
+	border-right: 3px solid $selected;
+	border-bottom: 3px solid $selected;
 	transform: rotateZ(38deg);
+	border-radius:0px;
 }
 
 input[type="checkbox"] + label:hover:before
 {
-	border-color: #2DA88E;
+	border-color: $hover;
 }
 
 input[type="checkbox"] + label:hover:after
 {
-	border-color: transparent #2DA88E #2DA88E transparent ;
+	border-color: transparent $hover $hover transparent ;
 }
