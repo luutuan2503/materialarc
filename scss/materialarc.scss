@@ -1,15 +1,20 @@
 /*
-				Materilarc
+			Materilarc Main file
 */
 
 //Sub files 
 	@import 'colors';
 
+	//Break points for diffrent screen resolutions
+$large-breakpoint: "screen and (min-width: 1024px)"; //For large screen devices
+$medium-breakpoint: "screen and (max-width: 1023px) and (min-width: 719px)"; //for mediuam screen devices
+$small-breakpoint: "screen and (max-width: 719px)"; //for small screen devices
+
 body
 {
 	padding: 0px;
 	margin: 0px;
-	font-family: 'Roboto', Arial, serif;
+	font-family: 'Roboto Mono', monospace;
 }
 
 //Flexbox Grid system 
@@ -20,3 +25,38 @@ body
 
 //Material design cards
 @import 'cards';
+
+
+/*
+	################################
+		For large screen devices
+	################################
+*/
+
+@media #{$large-breakpoint}{
+
+	//Grid system for large screen devices
+	@include drawGrid('ls');
+}
+
+/*
+	#################################
+		For medium screen devices
+	#################################
+*/
+
+@media #{$medium-breakpoint}{
+	//Grid system for meduim screen devices
+	@include drawGrid('ms');
+}
+
+/*
+	##################################
+		For small screen devices
+	##################################
+*/
+
+@media #{$small-breakpoint}{
+	//Grid system for small screen devices
+	@include drawGrid('ss');
+}

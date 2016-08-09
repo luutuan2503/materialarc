@@ -9,11 +9,6 @@
 $no-grid : 12;
 $gutter-width : 1.6%;
 
-//Break points for diffrent screen resolutions
-$large-breakpoint: "screen and (min-width: 1024px)"; //For large screen devices
-$medium-breakpoint: "screen and (max-width: 1023px) and (min-width: 719px)"; //for mediuam screen devices
-$small-breakpoint: "screen and (max-width: 719px)"; //for small screen devices
-
 $scw : (100 - ($gutter-width * ($no-grid - 1))) / $no-grid; //Single Column width
 
 @mixin drawGrid($prefix)
@@ -44,16 +39,4 @@ $scw : (100 - ($gutter-width * ($no-grid - 1))) / $no-grid; //Single Column widt
 }
 .col-right{
 	align-self: flex-end;
-}
-
-@media #{$large-breakpoint}{
-	@include drawGrid('ls');
-}
-
-@media #{$medium-breakpoint}{
-	@include drawGrid('ms');
-}
-
-@media #{$small-breakpoint}{
-	@include drawGrid('ss');
 }
